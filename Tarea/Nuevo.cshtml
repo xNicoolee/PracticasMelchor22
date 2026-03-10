@@ -1,0 +1,36 @@
+﻿@model prueba22.web.Models.TareaEntity
+
+<div class="row">
+	<div class="col-6">
+		<h2>Lista de tareas</h2>
+	</div>
+	<div class="col-6">
+		<a class="btn btn-primary" asp-asp-controller="Tareas" asp-action="Nuevo">Nuevo</a>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-12">
+		<form asp-controller="Tareas" asp-action="Nuevo" method="post">
+
+			<input tuype="hidden" asp-for="@Model.Id" id="id" name="id" />
+			<div class="m-3">
+				<label for="Tareas" class="form-label">Tareas</label>
+				<input tuype="text" class="form-control" id="tareas" name="tareas" asp-for="@Model.Tarea" />
+			</div>
+			<div class="m-3">
+				<label for="fechaterminacion" class="form-label">Fecha Terminacion</label>
+				<input tuype="date" class="form-control" id="fechaterminacion" name="fechaterminacion" asp-for="@Model.FechaTerminacion" />
+			</div>
+			<div class="mb-3">
+				<label for="Tareas" class="form-label">Descripcion</label>
+				<textarea class="form-control" id="descripcion" name="descripcion" asp-forn="@Model.Descripcion"></textarea>
+			</div>
+			<div class="mb-3">
+				<button class="btn btn-secondary" asp-controller="Tareas" asp-action="Index">cerrar</button>
+				<input type="submit" class="btn btn-success" value="Guardar"><input />
+			</div>
+		</form>
+	</div>
+</div>

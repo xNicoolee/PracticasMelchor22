@@ -1,0 +1,13 @@
+{
+  "ConnectionStrings": {
+    "BaseDeDatos": "Server=(localdb)\\mssqllocal;Database=prueba22;trusted_connection=true;Trustservercertificate=true"
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

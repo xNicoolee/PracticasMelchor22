@@ -1,0 +1,48 @@
+﻿@using prueba22.web.Models
+@model IEnumerable<TareaEntity>
+
+@{
+    ViewData["Title"] = "Lista de Tareas";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2>Lista de tareas</h2>
+    </div>
+    <div class="col-6 text-end">
+        @* Corregido: asp-controller (tenías un asp- de más) *@
+        <a class="btn btn-primary" asp-controller="Tareas" asp-action="Nuevo">Nuevo</a>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tarea</th>
+                    <th>Descripción</th>
+                    <th>Fecha Terminación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Corregido: era 'tbody', no 'tbooy' *@
+                @foreach (var tarea in Model)
+                {
+                    <tr>
+                        <td>@tarea.Tarea</td>
+                        <td>@tarea.Descripcion</td>
+                        <td>@tarea.FechaTerminacion</td>
+                        <td>
+                            @* Corregido: faltaba una comilla después de btn-warning *@
+                            <a class="btn btn-warning" asp-controller="Tareas" asp-action="Modificar" asp-route-id="@tarea.Id">Modificar</a>
+                            <a class="btn btn-danger" asp-controller="Tareas" asp-action="Borrar" asp-route-id="@tarea.Id">Borrar</a>
+                            <a class="btn btn-info" asp-controller="Tareas" asp-action="TerminarTarea" asp-route-id="@tarea.Id">Terminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
